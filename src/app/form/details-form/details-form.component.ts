@@ -54,7 +54,7 @@ export class DetailsFormComponent implements OnInit {
 				matches.push(ser_list[i]);
 			}
 		}
-		//console.log('matches: ' + matches);
+		
 		return matches;
   }
 

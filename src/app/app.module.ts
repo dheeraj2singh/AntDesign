@@ -25,7 +25,6 @@ import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AutocompleteComponent } from './autocomplete/autocomplete.component';  
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 registerLocaleData(en);
 
@@ -34,8 +33,8 @@ registerLocaleData(en);
     AppComponent,
     DetailsFormComponent,
     AddressFormComponent,
-    FeedbackFormComponent,
-    AutocompleteComponent
+    FeedbackFormComponent
+   
   ],
   imports: [
     ReactiveFormsModule,
