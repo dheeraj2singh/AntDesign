@@ -1,0 +1,64 @@
+<p>details-form works!</p>
+
+<form nz-form [formGroup]="details">
+    <div nz-row>
+      <div nz-col  nzSpan="8" nzOffset="8">
+        <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="name">Name</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          
+            <input nz-input name="name" type="text"  id="name" formControlName="name" (keyup)="searchonKeyup($event)" list="SearchResults">
+            <datalist id="SearchResults">
+              <option *ngFor="let sr of result" [value]='sr' >{{sr}}</option>
+           </datalist>
+           
+        </nz-form-control>
+        </nz-form-item >
+  
+    </div>
+</div>
+
+<div nz-row>
+    <div nz-col  nzSpan="8" nzOffset="8">
+      <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="email">email</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+          <input nz-input name="email" type="email" id="email" formControlName="email">
+      </nz-form-control>
+      </nz-form-item >
+
+  </div>
+</div>
+
+<div nz-row>
+    <div nz-col  nzSpan="8" nzOffset="8">
+      <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="phone">phone</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+          <input nz-input name="phone" type="text" id="phone" formControlName="phone">
+      </nz-form-control>
+      </nz-form-item >
+
+  </div>
+</div>
+<div nz-row>
+    <div nz-col  nzSpan="8" nzOffset="8">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="gender">gender</nz-form-label>
+        <nz-form-control nzSpan="14" >
+        <nz-select   nzAllowClear nzPlaceHolder="Select a gender" name="gender" formControlName="gender" >
+            <nz-option nzLabel="Male" nzValue="male"></nz-option>
+            <nz-option nzLabel="Female" nzValue="female"></nz-option>
+            
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item >
+
+  </div>
+</div>
+
+<label nz-checkbox (change)=onchecked()  formControlName="agree_terms">
+  </label>I aggree with terms and 
+  <a href="">aggreements</a>
+ 
+</form>

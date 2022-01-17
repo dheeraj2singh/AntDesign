@@ -1,0 +1,54 @@
+<p>address-form works!</p>
+<form nz-form [formGroup]="address">
+ 
+    <div nz-row>
+      <div nz-col  nzSpan="8" nzOffset="8">
+        <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="House no">House no/flat no</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="House no" type="text" id="House no" formControlName="house_no">
+        </nz-form-control>
+        </nz-form-item >
+  
+    </div>
+</div>
+<div nz-row>
+    <div nz-col  nzSpan="8" nzOffset="8">
+      <nz-form-item>
+      <nz-form-label [nzSpan]="10" nzFor="street">Street no /area</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+          <input nz-input name="street" type="text" id="street" formControlName="street" >
+      </nz-form-control>
+      </nz-form-item >
+
+  </div>
+</div>
+<div nz-row>
+    <div nz-col  nzSpan="8" nzOffset="8">
+      <nz-form-item>
+      <nz-form-label [nzSpan]="10" nzFor="city">city / State</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+          <input nz-input name="city" type="text" id="city" formControlName="city" >
+      </nz-form-control>
+      </nz-form-item >
+
+  </div>
+</div>
+<div nz-row>
+    <div nz-col  nzSpan="8" nzOffset="8">
+        <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="city" >Country</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+<nz-select  nzAllowClear nzPlaceHolder="Select a country" formControlName="country" >
+    <nz-option nzLabel="india" nzValue="india"></nz-option>
+    <nz-option nzLabel="usa" nzValue="usa"></nz-option>
+    <nz-option nzLabel="japan" nzValue="japan"></nz-option>
+  </nz-select>
+  </nz-form-control>
+  </nz-form-item>
+</div></div>
+
+   
+ 
+
+</form>
