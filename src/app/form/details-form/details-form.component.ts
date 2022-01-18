@@ -2,7 +2,7 @@ import { AutocompleteSearchService } from './../../service/autocomplete-search.s
 import { Formconstants } from './../../form-constants/form-constant';
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Form } from '@angular/forms';
+import { Form, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-details-form',
@@ -41,9 +41,9 @@ export class DetailsFormComponent implements OnInit {
    
   }
   searchonKeyup(event:any){
+    this.result=[];
     let search_term=event.target.value;
     if (search_term.length>0){
-      console.log("in if")
       this.result=this.serachfromlist(this.user_name,search_term);
     }
   }
@@ -57,5 +57,7 @@ export class DetailsFormComponent implements OnInit {
 		
 		return matches;
   }
+  
+  
 
 }

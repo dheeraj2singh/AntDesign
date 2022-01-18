@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "agree_terms": true,
+      "name": "dheeraj",
+      "email": "d@gmail.com",
+      "phone": "7788778777",
+      "gender": "male",
+      "house_no": "530",
+      "street": "13 bhajanpuar",
+      "city": "delhi",
+      "country": "india",
+      "feedback": "good",
+      "rate": 4,
+      "id": 1
+    },
+    {
+      "agree_terms": true,
+      "name": "aman rohilla",
+      "email": "",
+      "phone": "",
+      "gender": "",
+      "house_no": "",
+      "street": "",
+      "city": "",
+      "country": "india",
+      "feedback": "haapy",
+      "rate": 2,
+      "id": 2
+    }
+  ]
+}

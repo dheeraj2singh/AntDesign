@@ -20,26 +20,28 @@
 
 <div>
   <button nz-button nzType="default" nzStatus="finish" (click)="pre()" *ngIf="index > 0" >previous</button>
-  <button nz-button nzType="primary"  nzStatus="process" (click)="next()"  *ngIf="index < 2">next</button>
-  <button nz-button nzType="primary"  nzStatus="waitn" (click)="onsubmit()"*ngIf="index==2" >done</button>
+  <button nz-button nzType="primary"  nzStatus="process" (click)="next()" [disabled]="!myform.controls.house_no?.valid"  *ngIf="index < 2">next</button>
+  <button nz-button nzType="primary"  nzStatus="waitn" (click)="onsubmit()" [disabled]="!myform.valid" *ngIf="index==2" >done</button>
 </div>
 
 </div>
 
 <ng-template [ngIf]="true">
-  <nz-table #dataset [nzData]="dataList"  >
+  <nz-table #dataset [nzData]="dataList">
     <thead>
       <tr>
         <th>Name</th>
         <th>address</th>
         <th>feedback</th>
+        <th>action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let d of dataList" >
+      <tr *ngFor="let d of dataset.data" >
         <td>{{d.name}}</td>
         <td>{{d.house_no }} {{d.street}} {{ d.city }} , {{ d.country}}</td>
         <td>{{d.feedback}}</td>
+        <td> <button nz-button nzType="primary" nzDanger (click)=remove(d.id)>remove</button></td>
         
       </tr>
     </tbody>

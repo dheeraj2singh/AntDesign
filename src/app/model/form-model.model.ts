@@ -1,5 +1,6 @@
 
 export interface FormModel {
+    id:number;
     agree_terms:string;
     name:string;
     email:string;

@@ -11,6 +11,15 @@
             <datalist id="SearchResults">
               <option *ngFor="let sr of result" [value]='sr' >{{sr}}</option>
            </datalist>
+           <ng-template
+          [ngIf]="!details.controls.name?.valid && (details.controls.name?.touched || details.controls.name?.dirty)">
+          <ng-template [ngIf]="(details.controls.name?.errors?.required)">
+            name is required !
+          </ng-template><br>
+          <ng-template [ngIf]="details.controls.name.errors?.minlength">
+             min length required is 5</ng-template>
+         
+        </ng-template>
            
         </nz-form-control>
         </nz-form-item >
@@ -23,9 +32,14 @@
       <nz-form-item>
       <nz-form-label [nzSpan]="6" nzFor="email">email</nz-form-label>
       <nz-form-control [nzSpan]="14">
-          <input nz-input name="email" type="email" id="email" formControlName="email">
+          <input nz-input name="email" type="email" id="email" formControlName="email" >
+          <ng-template
+          [ngIf]="!details.controls.email?.valid">
+          email is inavlid
+        </ng-template>
       </nz-form-control>
       </nz-form-item >
+     
 
   </div>
 </div>
@@ -36,6 +50,11 @@
       <nz-form-label [nzSpan]="6" nzFor="phone">phone</nz-form-label>
       <nz-form-control [nzSpan]="14">
           <input nz-input name="phone" type="text" id="phone" formControlName="phone">
+          <ng-template
+          [ngIf]="!details.controls.phone?.valid">
+          
+          length required is 10
+        </ng-template>
       </nz-form-control>
       </nz-form-item >
 

@@ -9,6 +9,10 @@
             <input nz-input name="House no" type="text" id="House no" formControlName="house_no">
         </nz-form-control>
         </nz-form-item >
+        <ng-template
+        [ngIf]="!address.controls.house_no?.valid">
+         house_no is required
+      </ng-template>
   
     </div>
 </div>
