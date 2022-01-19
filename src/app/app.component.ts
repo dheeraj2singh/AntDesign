@@ -39,6 +39,7 @@ ngOnInit(): void {
  
 
 }
+// for geting the data from server
 getdata(){
   this.service.getdata().subscribe(res=>this.dataList=res,error=>console.error(error));
   
@@ -51,6 +52,7 @@ GetChildData(event:boolean){
   
 }
 
+// steps change
   pre(){
     this.index-=1;
     this.myform.controls['house_no'].clearValidators();
@@ -75,6 +77,8 @@ GetChildData(event:boolean){
   onIndexChange(event:any){
     this.index=event;
   }
+
+  // to create the form
     createForm(){
       this.myform=this.fb.group({
         agree_terms:['false'],
@@ -94,16 +98,17 @@ GetChildData(event:boolean){
                
       });
     }
-
+ // form submit
     onsubmit(){
+      // getting the data from form
       this.data=this.myform.value;
-      // this.dataList.push(this.data);
-      console.log(this.dataList)
-      this.index=Formconstants.Form_Index;
+      // callin add data api on duumy json server
       this.service.addData(this.data).subscribe(res=>{console.log(res),this.getdata()},error=>console.log(error))
       this.createForm();
+      this.index=Formconstants.Form_Index;
     }
 
+    // to remove the data from server
     remove(id:number){
       this.service.removedata(id).subscribe(res=>this.getdata());
       

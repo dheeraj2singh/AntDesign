@@ -25,13 +25,21 @@ export class DetailsFormComponent implements OnInit {
   ngOnInit(): void {
    
     this.getsearchList();
+    this.suggestion();
   }
+
+  // autocomplete search list
   getsearchList(){
-    this.auto_search.getAllUsername().subscribe((data:any) =>{
-      data.forEach((data:any) => {
-        this.user_name.push(data['username'])
-      })
+    this.auto_search.getAllUsername().subscribe(data=>
+      { this.user_name=data,
+        console.log(data)
       });
+    
+    // ((data:any) =>{
+    //   data.forEach((data:any) => {
+    //     this.user_name.push(data['username'])
+    //   })
+    //   });
     
   }
 
@@ -40,13 +48,7 @@ export class DetailsFormComponent implements OnInit {
     this.myOutput.emit(this.checked);
    
   }
-  searchonKeyup(event:any){
-    this.result=[];
-    let search_term=event.target.value;
-    if (search_term.length>0){
-      this.result=this.serachfromlist(this.user_name,search_term);
-    }
-  }
+  
   serachfromlist(ser_list:any,s_term:string){
     let matches = [], i;
 		for (i = 0; i < ser_list.length; i++) {
@@ -58,6 +60,12 @@ export class DetailsFormComponent implements OnInit {
 		return matches;
   }
   
-  
+  suggestion(){
+    this.details.get('name').valueChanges.subscribe((res :string)=>{
+      if(res.length>0){
+        this.result=this.serachfromlist(this.user_name,res);
+      }
+    })
+  }
 
 }

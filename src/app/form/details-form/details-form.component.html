@@ -7,7 +7,7 @@
         <nz-form-label [nzSpan]="6" nzFor="name">Name</nz-form-label>
         <nz-form-control [nzSpan]="14">
           
-            <input nz-input name="name" type="text"  id="name" formControlName="name" (keyup)="searchonKeyup($event)" list="SearchResults">
+            <input nz-input name="name" type="text"  id="name" formControlName="name"  list="SearchResults">
             <datalist id="SearchResults">
               <option *ngFor="let sr of result" [value]='sr' >{{sr}}</option>
            </datalist>
