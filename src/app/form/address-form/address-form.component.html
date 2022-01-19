@@ -1,58 +1,56 @@
 <p>address-form works!</p>
 <form nz-form [formGroup]="address">
- 
-    <div nz-row>
-      <div nz-col  nzSpan="8" nzOffset="8">
-        <nz-form-item>
-        <nz-form-label [nzSpan]="10" nzFor="House no">House no/flat no</nz-form-label>
+
+  <div nz-row>
+    <div nz-col nzSpan="8" nzOffset="8">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="House no">{{formconstant.address_house_no}}
+          <label class="red" *ngIf="address.controls.email?.touched">*</label>
+        </nz-form-label>
         <nz-form-control [nzSpan]="14">
-            <input nz-input name="House no" type="text" id="House no" formControlName="house_no">
+          <input nz-input name="House no" type="text" id="House no" formControlName="house_no">
+          <ng-template
+            [ngIf]="!address.controls.house_no?.valid && (address.controls.house_no?.touched || address.controls.house_no?.dirty)">
+            <label class="red">House No Is Required</label>
+          </ng-template>
         </nz-form-control>
-        </nz-form-item >
-        <ng-template
-        [ngIf]="!address.controls.house_no?.valid">
-         house_no is required
-      </ng-template>
-  
+      </nz-form-item>
     </div>
-</div>
-<div nz-row>
-    <div nz-col  nzSpan="8" nzOffset="8">
-      <nz-form-item>
-      <nz-form-label [nzSpan]="10" nzFor="street">Street no /area</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-          <input nz-input name="street" type="text" id="street" formControlName="street" >
-      </nz-form-control>
-      </nz-form-item >
-
   </div>
-</div>
-<div nz-row>
-    <div nz-col  nzSpan="8" nzOffset="8">
+  <div nz-row>
+    <div nz-col nzSpan="8" nzOffset="8">
       <nz-form-item>
-      <nz-form-label [nzSpan]="10" nzFor="city">city / State</nz-form-label>
-      <nz-form-control [nzSpan]="14">
-          <input nz-input name="city" type="text" id="city" formControlName="city" >
-      </nz-form-control>
-      </nz-form-item >
-
-  </div>
-</div>
-<div nz-row>
-    <div nz-col  nzSpan="8" nzOffset="8">
-        <nz-form-item>
-        <nz-form-label [nzSpan]="10" nzFor="city" >Country</nz-form-label>
+        <nz-form-label [nzSpan]="10" nzFor="street">{{formconstant.address_street}}</nz-form-label>
         <nz-form-control [nzSpan]="14">
-<nz-select  nzAllowClear nzPlaceHolder="Select a country" formControlName="country" >
-    <nz-option nzLabel="india" nzValue="india"></nz-option>
-    <nz-option nzLabel="usa" nzValue="usa"></nz-option>
-    <nz-option nzLabel="japan" nzValue="japan"></nz-option>
-  </nz-select>
-  </nz-form-control>
-  </nz-form-item>
-</div></div>
+          <input nz-input name="street" type="text" id="street" formControlName="street">
+        </nz-form-control>
+      </nz-form-item>
 
-   
- 
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="8" nzOffset="8">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="city">{{formconstant.address_city}}</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input name="city" type="text" id="city" formControlName="city">
+        </nz-form-control>
+      </nz-form-item>
 
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="8" nzOffset="8">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="10" nzFor="city">{{formconstant.address_country}}</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <nz-select nzAllowClear nzPlaceHolder="Select a country" formControlName="country">
+            <nz-option nzLabel="india" nzValue="india"></nz-option>
+            <nz-option nzLabel="usa" nzValue="usa"></nz-option>
+            <nz-option nzLabel="japan" nzValue="japan"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
 </form>

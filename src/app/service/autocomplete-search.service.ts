@@ -2,10 +2,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormModel } from '../model/form-model.model';
-
+import { FormModel } from '../Interface/form-model.model';
 import { map } from 'rxjs/operators'
-
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +11,6 @@ import { map } from 'rxjs/operators'
 export class AutocompleteSearchService {
 
   constructor(private http:HttpClient) { }
-
   //url 
   baseurl:string="https://jsonplaceholder.typicode.com/users";
 

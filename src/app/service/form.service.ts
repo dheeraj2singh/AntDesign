@@ -1,4 +1,4 @@
-import { FormModel } from './../model/form-model.model';
+import { FormModel } from '../Interface/form-model.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

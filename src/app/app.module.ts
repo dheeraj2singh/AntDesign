@@ -1,8 +1,6 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
@@ -25,7 +23,7 @@ import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { ReactiveFormsModule } from '@angular/forms';
-import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
 registerLocaleData(en);
 
 @NgModule({
@@ -34,7 +32,7 @@ registerLocaleData(en);
     DetailsFormComponent,
     AddressFormComponent,
     FeedbackFormComponent
-   
+
   ],
   imports: [
     ReactiveFormsModule,
@@ -46,14 +44,13 @@ registerLocaleData(en);
     NzGridModule,
     NzFormModule,
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NzButtonModule,
     NzStepsModule,
     NzTypographyModule,
-    Ng2SearchPipeModule
+    NzAlertModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

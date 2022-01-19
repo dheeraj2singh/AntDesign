@@ -1,13 +1,11 @@
-import { Observable } from 'rxjs';
-import { AutocompleteSearchService } from './service/autocomplete-search.service';
-import { FormModel } from './model/form-model.model';
-import { Form, FormBuilder } from '@angular/forms';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { FormModel } from './Interface/form-model.model';
+import { FormBuilder } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms'
 import { Formconstants } from './form-constants/form-constant';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormService } from './service/form.service';
 
-export enum form_enum{
+export enum form_enum {
   details_form,
   address_form,
   feedback_form
@@ -18,101 +16,86 @@ export enum form_enum{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit  {
+export class AppComponent implements OnInit {
 
- agree_term_disabled=true;
-  title = 'AntDesign';
- index:number=Formconstants.Form_Index;
- myform:any;
- dataList!:FormModel[];
+  public agree_term_disabled = true;
+  public index: number = Formconstants.Form_Index;
+  public dataList: FormModel[];
+  public myform: FormGroup;
+  public error:string;
+  public formconstant = Formconstants;
+  public get formindex(): typeof form_enum {
+    return form_enum;
+  }
+  constructor(private fb: FormBuilder, private service: FormService) {
+    this.dataList = [];
+    this.error="";
+    this.myform = this.fb.group({
+      agree_terms: ['false'],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      email: ['', [Validators.email]],
+      phone: ['', [Validators.minLength(10), Validators.maxLength(10)]],
+      gender: [''],
+      house_no: [''],
+      street: [''],
+      city: [''],
+      country: [''],
+      feedback: [''],
+      rate: [''],
+    });
 
-data!:FormModel;
+  }
+  ngOnInit(): void {
+    this.getdata();
+  }
+  // for geting the data from server
+  getdata() {
+    this.service.getdata().subscribe(res => this.dataList = res, error => { this.error = error.message });
+  }
 
-public get formindex(): typeof form_enum{
-  return form_enum;
-}
-constructor(private fb:FormBuilder,private service:FormService){}
-ngOnInit(): void {
-  this.createForm()
- 
-  this.getdata();
- 
+  GetChildData(event: boolean) {
+    this.agree_term_disabled = !event;
+  }
 
-}
-// for geting the data from server
-getdata(){
-  this.service.getdata().subscribe(res=>this.dataList=res,error=>console.error(error));
-  
-}
-
-GetChildData(event:boolean){
-  
-  this.agree_term_disabled=!event;
-  console.log("child",this.agree_term_disabled)
-  
-}
-
-// steps change
-  pre(){
-    this.index-=1;
+  // steps change
+  pre() {
+    this.index -= this.formconstant.POS_ONE;
     this.myform.controls['house_no'].clearValidators();
   }
 
-  setValidation(){
-      if(this.myform.get("email").valueChanges && this.myform.get("email").value.length>0){  
-        this.myform.controls['house_no'].setValidators([Validators.required]);    
-      }
-  }
-  next(){
-   
-    this.index+=1;
+  next() {
+    this.index += this.formconstant.POS_ONE;
     this.setValidation();
-
-
   }
-  done(){
+
+  done() {
     console.log("done");
   }
- 
-  onIndexChange(event:any){
-    this.index=event;
+
+  setValidation() {
+    if (this.myform.controls.name.valueChanges.subscribe(res => { return res; }) && this.myform.controls.email.value.length > 0) {
+      this.myform.controls['house_no'].setValidators([Validators.required]);
+    }
   }
 
-  // to create the form
-    createForm(){
-      this.myform=this.fb.group({
-        agree_terms:['false'],
-        name:['',[Validators.required,Validators.minLength(5)]],
-        email:['',[Validators.email]],
-        phone:['',[Validators.minLength(10),Validators.maxLength(10)]],
-        gender:[''],
-        
-          house_no:[''],
-          street:[''],
-          city:[''],
-          country:[''],
-        
-        
-          feedback:[''],
-          rate:[''],
-               
-      });
-    }
- // form submit
-    onsubmit(){
-      // getting the data from form
-      this.data=this.myform.value;
-      // callin add data api on duumy json server
-      this.service.addData(this.data).subscribe(res=>{console.log(res),this.getdata()},error=>console.log(error))
-      this.createForm();
-      this.index=Formconstants.Form_Index;
-    }
+  onIndexChange(event: number) {
+    this.index = event;
+  }
 
-    // to remove the data from server
-    remove(id:number){
-      this.service.removedata(id).subscribe(res=>this.getdata());
-      
-    }
-    
+  // form submit
+  onsubmit() {
+    // getting the data from form
+    let data: FormModel = this.myform.value;
+    // callin add data api on duumy json server
+    this.service.addData(data).subscribe(res => { this.getdata() }, error => this.error = error)
+    this.myform.reset();
+    this.index = Formconstants.Form_Index;
+  }
+
+  // to remove the data from server
+  remove(id: number) {
+    this.service.removedata(id).subscribe(res => { this.getdata() });
+  }
+
 
 }

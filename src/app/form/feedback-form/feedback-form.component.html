@@ -1,18 +1,16 @@
-<p>feedback-form works!</p>
-<form nz-form [formGroup]="feedback" >
-    <div nz-row>
-      <div nz-col  nzSpan="8" nzOffset="8">
-        <nz-form-item>
-            <nz-form-control>
-                <nz-form-label  nzFor="feedback">feedback</nz-form-label>
-              <nz-textarea-count [nzMaxCharacterCount]="100">
-                <textarea rows="4"  nz-input placeholder="enter the feedback"  name="feedback" formControlName="feedback"></textarea>
-              </nz-textarea-count>
-               <nz-rate  nzAllowHalf  [nzDisabled]="data_disable" formControlName="rate"></nz-rate>
-            </nz-form-control>
-          </nz-form-item>
-          
-           
+<form nz-form [formGroup]="feedback">
+  <div nz-row>
+    <div nz-col nzSpan="8" nzOffset="8">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-form-label nzFor="feedback">{{formconstant.feedback_feedback}}</nz-form-label>
+          <nz-textarea-count [nzMaxCharacterCount]="formconstant.max_character">
+            <textarea rows="4" nz-input placeholder="Enter the feedback" name="feedback"
+              formControlName="feedback"></textarea>
+          </nz-textarea-count>
+          <nz-rate nzAllowHalf [nzDisabled]="data_disable" formControlName="rate"></nz-rate>
+        </nz-form-control>
+      </nz-form-item>
     </div>
-</div>
+  </div>
 </form>

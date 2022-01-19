@@ -1,7 +1,5 @@
+import { FormGroup,FormBuilder } from '@angular/forms';
 import { Formconstants } from './../../form-constants/form-constant';
-
-
-
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -10,21 +8,22 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./feedback-form.component.css']
 })
 export class FeedbackFormComponent implements OnInit {
-  
- 
-  value :number= Formconstants.value;
-  @Input() data_disable!:boolean;
-  @Input() feedback:any;
-  constructor() { }
+  public value: number = Formconstants.value;
+  formconstant = Formconstants;
+  @Input() public data_disable: boolean = false;
+  @Input() public feedback: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.feedback = this.fb.group({});
+  }
 
   ngOnInit(): void {
-  console.log(this.data_disable)
-  if(this.data_disable){
-    this.feedback.get('feedback').disable();
-  }else{
-    this.feedback.get('feedback').enable();
+
+    if (this.data_disable) {
+      this.feedback.controls.feedback.disable();
+    } else {
+      this.feedback.controls.feedback.enable();
+    }
   }
-  }
-  
-  
+
+
 }

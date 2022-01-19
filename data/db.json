@@ -27,6 +27,20 @@
       "feedback": "haapy",
       "rate": 2,
       "id": 2
+    },
+    {
+      "agree_terms": true,
+      "name": "Testt",
+      "email": "test@666",
+      "phone": "2221332332",
+      "gender": "male",
+      "house_no": "test",
+      "street": "test",
+      "city": "test",
+      "country": "india",
+      "feedback": "test",
+      "rate": 4.5,
+      "id": 3
     }
   ]
 }
