@@ -24,6 +24,8 @@ export class Formconstants{
     public static table_header_feedback:string="Feedback";
     public static table_header_action:string="Action";
     public static max_character:number=100;
+    public static boolean_true:boolean=true;
+    public static boolean_false:boolean=false;
 
 
 

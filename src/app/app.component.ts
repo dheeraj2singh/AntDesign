@@ -17,13 +17,12 @@ export enum form_enum {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
-  public agree_term_disabled = true;
+  public formconstant = Formconstants;
+  public agree_term_disabled:boolean =Formconstants.boolean_true;
   public index: number = Formconstants.Form_Index;
   public dataList: FormModel[];
   public myform: FormGroup;
   public error:string;
-  public formconstant = Formconstants;
   public get formindex(): typeof form_enum {
     return form_enum;
   }
