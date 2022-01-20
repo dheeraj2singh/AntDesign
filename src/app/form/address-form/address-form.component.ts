@@ -17,7 +17,6 @@ export class AddressFormComponent implements OnInit {
     this.country_List=["India","USA","Russia","Japan"];
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

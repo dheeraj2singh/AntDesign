@@ -2,19 +2,33 @@
   <div nz-row>
     <div nz-col nzSpan="8" nzOffset="8">
       <nz-form-item>
-        <nz-form-label [nzSpan]="6" nzFor="name">{{formconstant.details_name}}</nz-form-label>
+        <nz-form-label [nzSpan]="6" nzFor="name">{{
+          formconstant.details_name
+        }}</nz-form-label>
         <nz-form-control [nzSpan]="14">
-          <input nz-input name="name" type="text" id="name" formControlName="name" list="SearchResults">
+          <input
+            nz-input
+            name="name"
+            type="text"
+            id="name"
+            formControlName="name"
+            list="SearchResults"
+          />
           <datalist id="SearchResults">
-            <option *ngFor="let sr of result" [value]='sr'>{{sr}}</option>
+            <option *ngFor="let sr of result" [value]="sr">{{ sr }}</option>
           </datalist>
           <ng-template
-            [ngIf]="!details.controls.name?.valid && (details.controls.name?.touched || details.controls.name?.dirty)">
-            <ng-template [ngIf]="(details.controls.name?.errors?.required)">
-              name is required !
-            </ng-template><br>
+            [ngIf]="
+              !details.controls.name?.valid &&
+              (details.controls.name?.touched || details.controls.name?.dirty)
+            "
+          >
+            <ng-template [ngIf]="details.controls.name?.errors?.required">
+              name is required ! </ng-template
+            ><br />
             <ng-template [ngIf]="details.controls.name.errors?.minlength">
-              min length required is 5</ng-template>
+              min length required is 5</ng-template
+            >
           </ng-template>
         </nz-form-control>
       </nz-form-item>
@@ -24,9 +38,17 @@
   <div nz-row>
     <div nz-col nzSpan="8" nzOffset="8">
       <nz-form-item>
-        <nz-form-label [nzSpan]="6" nzFor="email">{{formconstant.details_email}}</nz-form-label>
+        <nz-form-label [nzSpan]="6" nzFor="email">{{
+          formconstant.details_email
+        }}</nz-form-label>
         <nz-form-control [nzSpan]="14">
-          <input nz-input name="email" type="email" id="email" formControlName="email">
+          <input
+            nz-input
+            name="email"
+            type="email"
+            id="email"
+            formControlName="email"
+          />
           <ng-template [ngIf]="!details.controls.email?.valid">
             email is inavlid
           </ng-template>
@@ -38,32 +60,46 @@
   <div nz-row>
     <div nz-col nzSpan="8" nzOffset="8">
       <nz-form-item>
-        <nz-form-label [nzSpan]="6" nzFor="phone">{{formconstant.details_phone}}</nz-form-label>
+        <nz-form-label [nzSpan]="6" nzFor="phone">{{
+          formconstant.details_phone
+        }}</nz-form-label>
         <nz-form-control [nzSpan]="14">
-          <input nz-input name="phone" type="text" id="phone" formControlName="phone">
+          <input
+            nz-input
+            name="phone"
+            type="text"
+            id="phone"
+            formControlName="phone"
+          />
           <ng-template [ngIf]="!details.controls.phone?.valid">
             length required is 10
           </ng-template>
         </nz-form-control>
       </nz-form-item>
-
     </div>
   </div>
   <div nz-row>
     <div nz-col nzSpan="8" nzOffset="8">
       <nz-form-item>
-        <nz-form-label [nzSpan]="6" nzFor="gender">{{formconstant.details_gender}}</nz-form-label>
+        <nz-form-label [nzSpan]="6" nzFor="gender">{{
+          formconstant.details_gender
+        }}</nz-form-label>
         <nz-form-control nzSpan="14">
-          <nz-select nzAllowClear nzPlaceHolder="Select a gender" name="gender" formControlName="gender">
+          <nz-select
+            nzAllowClear
+            nzPlaceHolder="Select a gender"
+            name="gender"
+            formControlName="gender"
+          >
             <nz-option nzLabel="Male" nzValue="male"></nz-option>
             <nz-option nzLabel="Female" nzValue="female"></nz-option>
           </nz-select>
         </nz-form-control>
       </nz-form-item>
-
     </div>
   </div>
-  <label nz-checkbox (change)=onChecked() formControlName="agree_terms">
-  </label>I aggree with terms and
+  <label nz-checkbox (change)="onChecked()" formControlName="agree_terms">
+  </label
+  >I aggree with terms and
   <a href="">aggreements</a>
 </form>

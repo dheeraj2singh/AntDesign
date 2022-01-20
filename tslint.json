@@ -1,0 +1,17 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "no-any": true,
+    "no-empty-interface": true,
+    "no-non-null-assertion": true,
+    "curly": [true, "ignore-same-line"],
+    "no-consecutive-blank-lines": true,
+    "no-trailing-whitespace": [true, "ignore-comments"],
+    "quotemark": [true, "single"],
+    "whitespace": [true, "check-branch", "check-operator", "check-typecast"],
+    "no-console": [true, "log", "error"]
+  },
+  "rulesDirectory": []
+}

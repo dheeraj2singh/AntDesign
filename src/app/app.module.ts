@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -24,6 +23,12 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { HeaderComponent } from './header-footer/header/header.component';
+import { FooterComponent } from './header-footer/footer/footer.component';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { SliderComponent } from './header-footer/slider/slider.component';
+import { NzCascaderModule } from 'ng-zorro-antd/cascader';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 registerLocaleData(en);
 
 @NgModule({
@@ -31,10 +36,13 @@ registerLocaleData(en);
     AppComponent,
     DetailsFormComponent,
     AddressFormComponent,
-    FeedbackFormComponent
-
+    FeedbackFormComponent,
+    HeaderComponent,
+    FooterComponent,
+    SliderComponent,
   ],
   imports: [
+    NzMenuModule,
     ReactiveFormsModule,
     NzTableModule,
     NzCheckboxModule,
@@ -50,9 +58,11 @@ registerLocaleData(en);
     NzButtonModule,
     NzStepsModule,
     NzTypographyModule,
-    NzAlertModule
+    NzAlertModule,
+    NzLayoutModule,
+    NzCascaderModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

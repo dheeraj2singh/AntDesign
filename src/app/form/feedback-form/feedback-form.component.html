@@ -3,12 +3,23 @@
     <div nz-col nzSpan="8" nzOffset="8">
       <nz-form-item>
         <nz-form-control>
-          <nz-form-label nzFor="feedback">{{formconstant.feedback_feedback}}</nz-form-label>
+          <nz-form-label nzFor="feedback">{{
+            formconstant.feedback_feedback
+          }}</nz-form-label>
           <nz-textarea-count [nzMaxCharacterCount]="formconstant.max_character">
-            <textarea rows="4" nz-input placeholder="Enter the feedback" name="feedback"
-              formControlName="feedback"></textarea>
+            <textarea
+              rows="4"
+              nz-input
+              placeholder="Enter the feedback"
+              name="feedback"
+              formControlName="feedback"
+            ></textarea>
           </nz-textarea-count>
-          <nz-rate nzAllowHalf [nzDisabled]="data_disable" formControlName="rate"></nz-rate>
+          <nz-rate
+            nzAllowHalf
+            [nzDisabled]="data_disable"
+            formControlName="rate"
+          ></nz-rate>
         </nz-form-control>
       </nz-form-item>
     </div>

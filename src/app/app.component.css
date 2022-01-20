@@ -1,12 +1,22 @@
-div.container{
-    margin: 20px;
-    margin-top: 50px;;
-    padding: 20px;
+div.container {
+  margin: 20px;
+  margin-top: 50px;
+  padding: 20px;
 }
-.steps-content{
-    margin: 20px;
-    padding: 10PX;
-    text-align: center;
-    background-color: aliceblue;
-   
+.steps-content {
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  background-color: aliceblue;
+}
+
+nz-content {
+  width: auto;
+  float: right;
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+}
+.right-layout {
+  margin-left: 200px;
 }
