@@ -26,9 +26,4 @@ export class Formconstants{
     public static max_character:number=100;
     public static boolean_true:boolean=true;
     public static boolean_false:boolean=false;
-
-
-
-
-   
 }

@@ -1,4 +1,4 @@
-import { FormModel } from './Interface/form-model.model';
+import { FormModel } from './Interface/form-Interface';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms'
 import { Formconstants } from './form-constants/form-constant';
@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
     return form_enum;
   }
   constructor(private fb: FormBuilder, private service: FormService) {
+
     this.dataList = [];
     this.error="";
     this.myform = this.fb.group({
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit {
   }
   // for geting the data from server
   getdata() {
-    this.service.getdata().subscribe(res => this.dataList = res, error => { this.error = error.message });
+    this.service.getData().subscribe(res => this.dataList = res, error => { this.error = error.message , console.log(error.message) });
   }
 
   GetChildData(event: boolean) {
@@ -72,7 +73,7 @@ export class AppComponent implements OnInit {
   }
 
   setValidation() {
-    if (this.myform.controls.name.valueChanges.subscribe(res => { return res; }) && this.myform.controls.email.value.length > 0) {
+    if (this.myform.controls.email.valueChanges.subscribe(res => { return res; }) && this.myform.controls.email.value.length > 0) {
       this.myform.controls['house_no'].setValidators([Validators.required]);
     }
   }
@@ -86,14 +87,14 @@ export class AppComponent implements OnInit {
     // getting the data from form
     let data: FormModel = this.myform.value;
     // callin add data api on duumy json server
-    this.service.addData(data).subscribe(res => { this.getdata() }, error => this.error = error)
+    this.service.addData(data).subscribe(res => { this.getdata() }, error => this.error = error.message)
     this.myform.reset();
     this.index = Formconstants.Form_Index;
   }
 
   // to remove the data from server
   remove(id: number) {
-    this.service.removedata(id).subscribe(res => { this.getdata() });
+    this.service.removeData(id).subscribe(res => { this.getdata() });
   }
 
 

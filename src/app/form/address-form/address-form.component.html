@@ -1,4 +1,3 @@
-<p>address-form works!</p>
 <form nz-form [formGroup]="address">
 
   <div nz-row>
@@ -45,9 +44,9 @@
         <nz-form-label [nzSpan]="10" nzFor="city">{{formconstant.address_country}}</nz-form-label>
         <nz-form-control [nzSpan]="14">
           <nz-select nzAllowClear nzPlaceHolder="Select a country" formControlName="country">
-            <nz-option nzLabel="india" nzValue="india"></nz-option>
-            <nz-option nzLabel="usa" nzValue="usa"></nz-option>
-            <nz-option nzLabel="japan" nzValue="japan"></nz-option>
+            <nz-option *ngFor="let c of country_List" [nzLabel]="c" [nzValue]="c"></nz-option>
+            <!-- <nz-option nzLabel="usa" nzValue="usa"></nz-option>
+            <nz-option nzLabel="japan" nzValue="japan"></nz-option> -->
           </nz-select>
         </nz-form-control>
       </nz-form-item>

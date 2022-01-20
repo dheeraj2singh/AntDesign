@@ -11,8 +11,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AddressFormComponent implements OnInit {
   formconstant = Formconstants;
   @Input() address: FormGroup;
+  public country_List:string[];
   constructor(private fb: FormBuilder) {
     this.address = this.fb.group({});
+    this.country_List=["India","USA","Russia","Japan"];
   }
 
   ngOnInit(): void {

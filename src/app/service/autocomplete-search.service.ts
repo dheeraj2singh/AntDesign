@@ -1,8 +1,6 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormModel } from '../Interface/form-model.model';
 import { map } from 'rxjs/operators'
 
 @Injectable({
@@ -16,11 +14,11 @@ export class AutocompleteSearchService {
 
     getAllUsername():Observable<any>{
       return this.http.get(`${this.baseurl}`).pipe(map((data:any)=>{
-        let d:string[]=[];
-        data.forEach((element:any) => {
-          d.push(element['name'])
+        let temp_list:string[]=[];
+        temp_list.forEach((element:any) => {
+          temp_list.push(element['name'])
         })
-        return d;
+        return temp_list;
       }));
 
     }

@@ -1,4 +1,4 @@
-import { FormModel } from '../Interface/form-model.model';
+import { FormModel } from '../Interface/form-Interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -18,11 +18,11 @@ export class FormService {
     return this.http.post<FormModel>(this.url,data);
   }
   // get api calling
-  getdata():Observable<any>{
+  getData():Observable<any>{
       return this.http.get(this.url);
   }
  // delete api calling
-  removedata(id:number){
+  removeData(id:number){
     return this.http.delete(this.url+'/'+id);
   }
 }

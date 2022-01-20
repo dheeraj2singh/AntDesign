@@ -22,23 +22,23 @@ export class DetailsFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getsearchList();
+    this.getSearchList();
     this.suggestion();
   }
 
   // autocomplete search list
-  getsearchList() {
+  getSearchList() {
     this.auto_search.getAllUsername().subscribe(data => {
       this.user_name = data
     });
   }
 
-  onchecked() {
+  onChecked() {
     this.checked = this.details.controls.agree_terms.value;
     this.myOutput.emit(this.checked);
   }
 
-  serachfromlist(ser_list: any, s_term: string) {
+  searchFromList(ser_list: any, s_term: string) {
     let matches = [], i;
     for (i = 0; i < ser_list.length; i++) {
       if (ser_list[i].match(s_term)) {
@@ -51,7 +51,7 @@ export class DetailsFormComponent implements OnInit {
   suggestion() {
     this.details.controls.name.valueChanges.subscribe((res: string) => {
       if (res && res.length > 0) {
-        this.result = this.serachfromlist(this.user_name, res);
+        this.result = this.searchFromList(this.user_name, res);
       }
     })
   }
