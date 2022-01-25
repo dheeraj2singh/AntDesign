@@ -1,8 +1,14 @@
 <nz-header>
-  <div class="logo"></div>
-  <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
-    <li nz-menu-item nzSelected>nav 1</li>
-    <li nz-menu-item>nav 2</li>
-    <li nz-menu-item>nav 3</li>
+  <img class="logo" src="../../../assets/images/logo.jpg" alt="logo" />
+  <ul
+    nz-menu
+    nzTheme="dark"
+    nzMode="horizontal"
+    class="header-menu"
+    (click)="clicked()"
+  >
+    <li nz-menu-item nzSelected routerLink="/home">home</li>
+    <li nz-menu-item routerLink="/nav1">nav 1</li>
+    <li nz-menu-item routerLink="/nav2">nav 2</li>
   </ul>
 </nz-header>

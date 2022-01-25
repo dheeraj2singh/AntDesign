@@ -94,12 +94,16 @@
             <nz-option nzLabel="Male" nzValue="male"></nz-option>
             <nz-option nzLabel="Female" nzValue="female"></nz-option>
           </nz-select>
+          <label
+            nz-checkbox
+            (change)="onChecked()"
+            formControlName="agree_terms"
+          >
+          </label
+          >I aggree with terms and
+          <a href="">aggreements</a>
         </nz-form-control>
       </nz-form-item>
     </div>
   </div>
-  <label nz-checkbox (change)="onChecked()" formControlName="agree_terms">
-  </label
-  >I aggree with terms and
-  <a href="">aggreements</a>
 </form>

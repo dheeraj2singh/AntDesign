@@ -1,9 +1,11 @@
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CommonModule } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,6 +31,10 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { SliderComponent } from './header-footer/slider/slider.component';
 import { NzCascaderModule } from 'ng-zorro-antd/cascader';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { HomeComponent } from './home/home.component';
+import { Nav1Component } from './nav1/nav1.component';
+import { Nav2Component } from './nav2/nav2.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -40,8 +46,13 @@ registerLocaleData(en);
     HeaderComponent,
     FooterComponent,
     SliderComponent,
+    HomeComponent,
+    Nav1Component,
+    Nav2Component,
   ],
   imports: [
+    AppRoutingModule,
+    NzDividerModule,
     NzMenuModule,
     ReactiveFormsModule,
     NzTableModule,

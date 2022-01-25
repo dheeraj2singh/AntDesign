@@ -2,11 +2,3 @@
   height: 100%;
   border-right: 0;
 }
-[nz-menu] {
-  width: 200px;
-}
-nz-sider {
-  height: 100%;
-  position: fixed;
-  left: 0;
-}

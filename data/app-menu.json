@@ -1,0 +1,114 @@
+{
+  "menu": [
+    {
+      "label": "home",
+      "link": "/app/ics-declaration",
+      "icon": "goods-declaration",
+      "selected": false,
+      "operationName": "subnav1",
+      "hide": false,
+      "children": [
+        {
+          "label": "ics-declaration.menu.view-all",
+          "link": "/view-all",
+          "icon": "view-all",
+          "selected": true,
+          "operationName": "option 1",
+          "hide": false,
+          "children": []
+        },
+        {
+          "label": "ics-declaration.menu.create-new",
+          "link": "/update-form/null",
+          "icon": "plus-circle",
+          "selected": false,
+          "operationName": "option 2",
+          "hide": false,
+          "children": []
+        },
+        {
+          "label": "ics-declaration.menu.enquiry",
+          "link": "/enquiry",
+          "icon": "enquiry",
+          "selected": false,
+          "operationName": "option 3",
+          "hide": false,
+          "children": []
+        },
+        {
+          "label": "ics-declaration.menu.upload-draft",
+          "link": "/upload-draft",
+          "icon": "upload-draft",
+          "selected": false,
+          "operationName": "option 4",
+          "hide": false,
+          "children": []
+        },
+        {
+          "label": "ics-declaration.menu.tariff",
+          "link": "/tariff-form",
+          "icon": "project",
+          "selected": false,
+          "operationName": "option 5",
+          "hide": false,
+          "children": []
+        }
+      ]
+    },
+    {
+      "label": "nav1",
+      "link": "/app/ics-declaration",
+      "icon": "goods-declaration",
+      "selected": false,
+      "operationName": "subnav2",
+      "hide": false,
+      "children": [
+        {
+          "label": "ics-declaration.menu.view-all",
+          "link": "/view-all",
+          "icon": "view-all",
+          "selected": true,
+          "operationName": "option 1",
+          "hide": false,
+          "children": []
+        },
+        {
+          "label": "ics-declaration.menu.create-new",
+          "link": "/update-form/null",
+          "icon": "plus-circle",
+          "selected": false,
+          "operationName": "option 2",
+          "hide": false,
+          "children": []
+        },
+        {
+          "label": "ics-declaration.menu.enquiry",
+          "link": "/enquiry",
+          "icon": "enquiry",
+          "selected": false,
+          "operationName": "option 3",
+          "hide": false,
+          "children": []
+        },
+        {
+          "label": "ics-declaration.menu.upload-draft",
+          "link": "/upload-draft",
+          "icon": "upload-draft",
+          "selected": false,
+          "operationName": "option 4",
+          "hide": false,
+          "children": []
+        },
+        {
+          "label": "ics-declaration.menu.tariff",
+          "link": "/tariff-form",
+          "icon": "project",
+          "selected": false,
+          "operationName": "option 5",
+          "hide": false,
+          "children": []
+        }
+      ]
+    }
+  ]
+}
